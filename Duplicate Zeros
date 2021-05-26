@@ -1,0 +1,21 @@
+class Solution {
+    public void duplicateZeros(int[] arr) {
+        int len = arr.length;
+        int[] temp = new int[len];
+        int j = 0;
+        for(int i=0; j<len; i++){
+            if(arr[i]!=0){
+                temp[j] = arr[i];
+            } else {
+                temp[j] = 0;
+                j += 1;
+                if(j < len){
+                    temp[j] = 0;
+                }
+            }
+            j++;
+        }
+        System.arraycopy(temp, 0, arr, 0, len);
+        System.gc();
+    }
+}
