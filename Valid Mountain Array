@@ -1,0 +1,24 @@
+class Solution {
+    public boolean validMountainArray(int[] arr) {
+        int p = -1;
+        for(int i=0; i<arr.length-1; i++){
+            if(arr[i+1]==arr[i]){
+                return false;
+            }
+            if(p == -1){
+                if(arr[i+1]<arr[i]){
+                    p = i;
+                }
+            } else {
+                if(arr[i+1]>arr[i]){
+                    return false;
+                }
+            }
+        }
+        if(p>0 && p<arr.length-1){
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
