@@ -1,0 +1,23 @@
+class Solution {
+    public int thirdMax(int[] nums) {
+        long max = Long.MIN_VALUE;
+        long sec_max = Long.MIN_VALUE;
+        long trd_max = Long.MIN_VALUE;
+        for(int num : nums){
+            if(num > max){
+                trd_max = sec_max;
+                sec_max = max;
+                max = num;
+            } else if(num < max && num > sec_max){
+                trd_max = sec_max;
+                sec_max = num;
+            } else if(num < sec_max && num > trd_max){
+                trd_max = num;
+            }
+        }
+        if(trd_max == Long.MIN_VALUE){
+            return (int)max;
+        }
+        return (int)trd_max;
+    }
+}
